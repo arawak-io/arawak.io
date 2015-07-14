@@ -5,7 +5,10 @@
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
-	crypto = require('crypto');
+	stripeCustomer = require('./plugins/stripe-customer'),
+	config = require('../../../../config/config'),
+	crypto = require('crypto'),
+  bcrypt = require('bcrypt-nodejs');
 
 /**
  * A Validation function for local strategy properties
@@ -44,6 +47,8 @@ var UserSchema = new Schema({
 	email: {
 		type: String,
 		trim: true,
+		unique: true,
+		lowercase: true,
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your email'],
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
@@ -94,6 +99,11 @@ var UserSchema = new Schema({
   		type: Date
   	}
 });
+
+
+	var stripeOptions = config.stripeOptions;
+
+	UserSchema.plugin(stripeCustomer, stripeOptions);
 
 /**
  * Hook a pre save method to hash the password

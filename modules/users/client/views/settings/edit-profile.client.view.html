@@ -1,5 +1,17 @@
 <section class="row" data-ng-controller="EditProfileController">
 	<div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
+		<div class="media">
+	<div class="media-left">
+		<a href="#">
+			<img class="media-object img-rounded" src="{{user.gravatar()}}" alt="{{user.email}}" height="42" width="42">
+		</a>
+	</div>
+	<div class="media-body">
+		<h4 class="media-heading">{{user.email}}</h4>
+		<strong> ID:</strong> {{user.stripe.customerId}}
+	</div>
+</div>
+
 		<form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
 				<div class="form-group">
@@ -11,8 +23,7 @@
 					<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="user.lastName" placeholder="Last Name">
 				</div>
 				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
+					<input type="hidden" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email">
 				</div>
 				<div class="form-group">
 					<label for="username">Username</label>

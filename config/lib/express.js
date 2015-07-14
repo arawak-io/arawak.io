@@ -18,7 +18,12 @@ var config = require('../config'),
 	passport = require('passport'),
 	flash = require('connect-flash'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),
+	cors = require('cors');
+
+var corsOptions = {
+  origin: '*'
+};
 
 /**
  * Initialize local variables
@@ -32,6 +37,7 @@ module.exports.initLocalVariables = function (app) {
 	app.locals.facebookAppId = config.facebook.clientID;
 	app.locals.jsFiles = config.files.client.js;
 	app.locals.cssFiles = config.files.client.css;
+	app.locals.stripePubKey = config.stripeOptions.stripePubKey;
 
 	// Passing the request url to environment locals
 	app.use(function (req, res, next) {
