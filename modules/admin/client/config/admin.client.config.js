@@ -13,7 +13,7 @@ angular.module('admin').run(['Menus',
 
 		// Add the dropdown list item
 		Menus.addSubMenuItem('topbar', 'admin', {
-			title: 'List Users',
+			title: 'Manage Users',
 			state: 'admin.users'
 		});
 	}
