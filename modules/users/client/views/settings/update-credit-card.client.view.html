@@ -1,6 +1,12 @@
 <section data-ng-controller="SettingsController">
 
-	<form {% if !user.stripe.last4 %}id="cardForm"{% endif %} action="/user/plan" method="POST" class="form-horizontal">
+	<ul>
+	    <li ng-repeat="veg in people">
+	        {{veg.name}}
+	    </li>
+	</ul>
+
+	<form {% if !user.stripe.last4 %}id="cardForm"{% endif %}  class="form-horizontal" data-ng-submit="updatePlan()">
       <div class="form-group">
         <label for="plan" class="col-sm-3 control-label">Plan</label>
         <div class="col-sm-4">
@@ -109,7 +115,7 @@
       </div>
     </form>
     {% endif %}
-
+<!-- 
     <div class="page-header">
       <h3>Delete Account</h3>
     </div>
@@ -119,7 +125,7 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->
 
 
 </section>

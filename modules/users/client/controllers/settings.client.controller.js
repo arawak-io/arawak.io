@@ -68,6 +68,15 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			});
 		};
 
+		$scope.people = [{
+		        name: 'John'
+		    }, {
+		        name: 'Paul'
+		    }, {
+		        name: 'George'
+		    }, {
+		        name: 'Ringo'
+		    }];
 
 		$scope.updateCreditCard = function() {
 
