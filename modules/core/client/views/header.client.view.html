@@ -38,8 +38,7 @@
 		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle user-header-dropdown-toggle" data-toggle="dropdown">
-
-					<img gravatar-src="'{{authentication.user.email}}'" alt="{{authentication.user.displayName}}" class="header--nav__profile-image"/>
+					<img data-ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header--nav__profile-image"/>
           <span class="header--nav__profile-name">{{authentication.user.displayName }}</span>
 				 <b class="caret"></b>
 				</a>
