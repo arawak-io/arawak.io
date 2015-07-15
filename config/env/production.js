@@ -28,7 +28,7 @@ module.exports = {
         callbackURL: '/api/auth/github/callback'
     },
     mailer: {
-        from: process.env.MAILER_FROM || 'MAILER_FROM',
+        from: process.env.MAILER_FROM || 'Arawak',
         options: {
             service: process.env.MAILER_SERVICE_PROVIDER || 'mailgun',
             auth: {
@@ -37,7 +37,7 @@ module.exports = {
             }
         }
     },
-    
+
     stripeOptions: {
         apiKey: process.env.STRIPE_KEY || 'sk_test_kaVJ6FqJRCkecspVho9K7u3q',
         stripePubKey: process.env.STRIPE_PUB_KEY || 'pk_test_XdVDGxpniL8niWpo2N8pp5E5',

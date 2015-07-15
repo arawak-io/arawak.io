@@ -31,7 +31,7 @@ module.exports = {
         callbackURL: '/api/auth/github/callback'
     },
 	mailer: {
-		from: process.env.MAILER_FROM || 'MAILER_FROM',
+		from: process.env.MAILER_FROM || 'Arawak',
 		options: {
 			service: process.env.MAILER_SERVICE_PROVIDER || 'mailgun',
 			auth: {
