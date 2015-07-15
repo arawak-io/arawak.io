@@ -7,7 +7,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		// If user is not signed in then redirect back home
 		if (!$scope.user) $location.path('/');
 
-		// Check if there are additional accounts 
+		// Check if there are additional accounts
 		$scope.hasConnectedAdditionalSocialAccounts = function(provider) {
 			for (var i in $scope.user.additionalProvidersData) {
 				return true;
@@ -43,7 +43,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			if (isValid){
 				$scope.success = $scope.error = null;
 				var user = new Users($scope.user);
-	
+
 				user.$update(function(response) {
 					$scope.success = true;
 					Authentication.user = response;
@@ -60,6 +60,33 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			$scope.success = $scope.error = null;
 
 			$http.post('/api/users/password', $scope.passwordDetails).success(function(response) {
+				// If successful show success message and clear form
+				$scope.success = true;
+				$scope.passwordDetails = null;
+			}).error(function(response) {
+				$scope.error = response.message;
+			});
+		};
+
+
+		$scope.updateCreditCard = function() {
+
+			$scope.success = $scope.error = null;
+
+			$http.post('/api/users/billing', $scope.passwordDetails).success(function(response) {
+				// If successful show success message and clear form
+				$scope.success = true;
+				$scope.passwordDetails = null;
+			}).error(function(response) {
+				$scope.error = response.message;
+			});
+		};
+
+		$scope.updatePlan = function() {
+
+			$scope.success = $scope.error = null;
+
+			$http.post('/api/users/plan', $scope.passwordDetails).success(function(response) {
 				// If successful show success message and clear form
 				$scope.success = true;
 				$scope.passwordDetails = null;
