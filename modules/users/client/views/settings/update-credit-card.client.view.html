@@ -1,11 +1,82 @@
 <section data-ng-controller="SettingsController">
 
-	<ul>
-	    <li ng-repeat="veg in people">
-	        {{veg.name}}
-	    </li>
-	</ul>
+	<form  class="form-horizontal" ng-click="updatePlan()">
 
+	<div class="form-group">
+	        <label for="plan" class="col-sm-3 control-label">Plan</label>
+	        <div class="col-sm-4">
+
+	            <div class="radio">
+	              <label>
+	                <input type="radio" checked="" name="plan" value="free" data-toggle="radio">
+	                <span>Free - $0</span>
+	              </label>
+	            </div>
+
+	            <div class="radio">
+	              <label>
+	                <input type="radio" name="plan" value="silver" data-toggle="radio">
+	                <span>Silver - $9</span>
+	              </label>
+	            </div>
+
+	            <div class="radio">
+	              <label>
+	                <input type="radio" name="plan" value="gold" data-toggle="radio">
+	                <span>Gold - $19</span>
+	              </label>
+	            </div>
+
+	            <div class="radio">
+	              <label>
+	                <input type="radio" name="plan" value="platinum" data-toggle="radio">
+	                <span>Platinum - $29</span>
+	              </label>
+	            </div>
+
+	        </div>
+	      </div>
+
+
+				<div id="cardWrapper">
+				        <div class="form-group">
+				          <label class="col-sm-3 control-label">Test Card Info</label>
+				          <div class="col-sm-7">
+				            <div class="form-control-static">4242424242424242, 11/19, 123 - <a href="https://stripe.com/docs/testing">additional test info</a></div>
+				          </div>
+				        </div>
+				        <div class="form-group">
+				          <label class="col-sm-3 control-label">Card Number</label>
+				          <div class="col-sm-4">
+				            <input id="card-num" type="text" class="form-control">
+				          </div>
+				        </div>
+				        <div class="form-group">
+				          <label class="col-sm-3 control-label">Card Details</label>
+				          <div class="col-sm-4">
+				            <div class="row">
+				              <div class="col-xs-4">
+				                <input id="card-month" type="text" size="2" maxlength="2" class="form-control" placeholder="MM">
+				              </div>
+				              <div class="col-xs-4">
+				                <input id="card-year"  type="text" size="2" maxlength="2" class="form-control" placeholder="YY">
+				              </div>
+				              <div class="col-xs-4">
+				                <input id="card-cvc" type="text" size="3" maxlength="3" class="form-control" placeholder="CVC">
+				              </div>
+				            </div>
+				          </div>
+				        </div>
+				        <div class="form-group">
+				          <div class="col-sm-6">
+				            <div id="cardFormError" class="alert alert-danger hidden" role="alert">
+				              <p>{{error}}</p>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+
+<!--
 	<form {% if !user.stripe.last4 %}id="cardForm"{% endif %}  class="form-horizontal" data-ng-submit="updatePlan()">
       <div class="form-group">
         <label for="plan" class="col-sm-3 control-label">Plan</label>
@@ -19,7 +90,7 @@
             </div>
           {% endfor %}
         </div>
-      </div>
+      </div> -->
 
 			<!--
       {% if !user.stripe.last4 %}
@@ -115,7 +186,7 @@
       </div>
     </form>
     {% endif %}
-<!-- 
+<!--
     <div class="page-header">
       <h3>Delete Account</h3>
     </div>
