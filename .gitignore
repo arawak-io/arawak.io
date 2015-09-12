@@ -15,7 +15,6 @@ public/lib/
 app/tests/coverage/
 .bower-*/
 .idea/
-coverage/
 
 # Arawak app and assets
 # ======================
@@ -24,9 +23,6 @@ modules/users/client/img/profile/uploads
 modules/theme/client/css/
 config/env/local.js
 *.pem
-
-# Ignoring MEAN.JS's gh-pages branch for documenation
-_site/
 
 # General
 # =======
@@ -73,3 +69,4 @@ mongod
 *.ntvs*
 *.njsproj
 *.sln
+
