@@ -7,7 +7,7 @@ angular.module('dashboard').config(['$stateProvider',
 		$stateProvider.
 		state('dashboard', {
 			url: '/dashboard',
-			templateUrl: 'modules/dashboard/client/views/dashboard.client.view.html'
+			templateUrl: 'modules/dashboard/views/dashboard.client.view.html'
 		});
 	}
 ]);
